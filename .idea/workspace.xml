@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c67e38a-dca6-43dc-82cb-0aa16e9554d1" name="Default Changelist" comment="" />
+    <list default="true" id="1c67e38a-dca6-43dc-82cb-0aa16e9554d1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/task_10/app/src/main/java/com/example/task_10/MainListAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task_10/app/src/main/java/com/example/task_10/models/MainListItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task_10/app/src/main/res/drawable/first_master.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task_10/app/src/main/res/layout/main_list_item.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_10/app/src/main/java/com/example/task_10/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/task_10/app/src/main/java/com/example/task_10/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task_10/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task_10/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +40,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../AndroidSDK" />
   </component>
   <component name="RunManager">
@@ -46,6 +64,17 @@
       <updated>1610892022504</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1610892072173">
