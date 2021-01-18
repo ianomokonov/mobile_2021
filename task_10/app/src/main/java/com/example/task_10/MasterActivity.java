@@ -55,9 +55,6 @@ public class MasterActivity extends AppCompatActivity implements Sendable {
 
     public void onChooseButtonClick(View view)
     {
-        // выводим сообщение
-        Toast.makeText(this, "Зачем вы нажали?", Toast.LENGTH_SHORT).show();
-
         CustomDialogFragment dialog = new CustomDialogFragment();
         Bundle args = new Bundle();
         args.putInt("masterIndex", masterIndex);
@@ -73,7 +70,6 @@ public class MasterActivity extends AppCompatActivity implements Sendable {
                     openFileOutput(FILENAME, MODE_PRIVATE)));
             // пишем данные
             bw.write(formValue.name + ", "+ formValue.email + ", "+formValue.phone);
-//            bw.write("");
             Toast.makeText(this, "Заявка принята, мастер свяжется с Вами в ближайшее время!", Toast.LENGTH_SHORT).show();
             // закрываем поток
             bw.close();
