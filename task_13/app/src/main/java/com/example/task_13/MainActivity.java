@@ -1,11 +1,13 @@
 package com.example.task_13;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -15,15 +17,28 @@ import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.task_13.R;
+import com.example.task_13.models.HistoryItem;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     private SpeechRecognizer speechRecognizer;
     private EditText editText;
     private ImageView micButton;
+    private final String FILENAME = "history.txt";
+    ArrayList<HistoryItem> items = new ArrayList<HistoryItem>();
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -39,9 +57,52 @@ public class MainActivity extends AppCompatActivity {
         if(ContextCompat.checkSelfPermission(this,Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
             checkPermission();
         }
+        ListView deviceList = (ListView) findViewById(R.id.deviceList);
+
+        // создаем адаптер
+        adapter = new ArrayAdapter(this,
+                android.R.layout.simple_list_item_1, new ArrayList<String>());
+
+        // устанавливаем для списка адаптер
+        deviceList.setAdapter(adapter);
+        deviceList.setOnItemClickListener((AdapterView<?> parent, View view,
+                                           int position, long id) -> {
+            HistoryItem historyItem = items.get(items.size() - 1 - position);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle(historyItem.value)
+                    .setMessage(historyItem.date)
+                    .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            // Закрываем окно
+                            dialog.cancel();
+                        }
+                    });
+            builder.show();
+        });
+        try {
+
+            FileInputStream fi = openFileInput(FILENAME);
+            ObjectInputStream oi = new ObjectInputStream(fi);
+
+            //Read objects
+            items = (ArrayList<HistoryItem>) oi.readObject();
+
+            oi.close();
+            fi.close();
+            showItems();
+
+
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found");
+        } catch (IOException e) {
+            System.out.println("Error initializing stream");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
         editText = findViewById(R.id.text);
         micButton = findViewById(R.id.button);
+        ImageView saveButton = findViewById(R.id.buttonSave);
         speechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
 
         final Intent speechRecognizerIntent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
@@ -112,7 +173,42 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        saveButton.setOnClickListener((View view) -> {
+            HistoryItem newItem = new HistoryItem();
+            newItem.value = editText.getText().toString();
+            newItem.date = Calendar.getInstance().getTime().toString();
 
+            items.add(newItem);
+            try {
+                FileOutputStream f = openFileOutput(FILENAME, MODE_PRIVATE);
+                ObjectOutputStream o = new ObjectOutputStream(f);
+
+                //Write objects to file
+                o.writeObject(items);
+
+                o.close();
+                f.close();
+                Toast.makeText(this, "Текст сохранен", Toast.LENGTH_SHORT).show();
+                showItems();
+
+
+            } catch (FileNotFoundException e) {
+                System.out.println("File not found");
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
+
+
+    }
+
+    private void showItems() {
+        adapter.clear();
+        if(items != null && items.size() > 0){
+            for(int i = items.size() - 1; i> -1; i--){
+                adapter.add(items.get(i).value);
+            }
+        }
     }
 
     @Override
