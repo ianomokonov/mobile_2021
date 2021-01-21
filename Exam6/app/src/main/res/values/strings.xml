@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Exam6</string>
+    <string name="welcome">Нажмите на кнопку старта и переверните экран!</string>
+    <string name="start">Включить дрон</string>
+    <string name="header">Добро пожаловать!</string>
+    <string name="header2">Ваш дрон готов к работе</string>
+    <string name="warning">Переверните экран!</string>
+    <string name="toright">toRight</string>
+    <string name="toleft">toLeft</string>
+    <string name="totop">toTop</string>
+    <string name="tobottom">toBottom</string>
+    <string name="safe_to_fly_gps">Safe to Fly (GPS)</string>
+</resources>

@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Exam1</string>
+    <string name="h1">Погода сегодня</string>
+    <string name="city">Ваш город</string>
+    <string name="mow">Москва</string>
+    <string name="sochi">Сочи</string>
+    <string name="arch">Архангельск</string>
+    <string name="back">Назад</string>
+</resources>

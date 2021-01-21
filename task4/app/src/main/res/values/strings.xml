@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Приложение для студента</string>
+    <string name="action_settings">Settings</string>
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wedn">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="header_text">Выберите день недели</string>
+    <string name="empty_text">Пустой список</string>
+    <string name="schedule_page_header">%s - расписание</string>
+</resources>

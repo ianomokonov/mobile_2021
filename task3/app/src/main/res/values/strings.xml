@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Учет финансов</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="add_profit_msg">Добавление прибыли</string>
+    <string name="add_waste_msg">Добавление траты</string>
+
+    <string name="add">Добавить</string>
+    <string name="cancel">Отмена</string>
+
+    <string name="date">Дата</string>
+    <string name="activity_caption">Сумма</string>
+    <string name="empty_text">Список пуст</string>
+    <string name="total_trx">Итого: </string>
+    <string name="add_purchase">Добавить трату</string>
+    <string name="add_profit">Добавить приыбль</string>
+    <string name="unit_rubles">₽</string>
+    <string name="currency_dialog_header">Конвертировать валюту</string>
+    <string name="profit_template">Прибыль на сумму %s ₽ от %s</string>
+    <string name="waste_template">Трата на сумму %s ₽ от %s</string>
+    <string name="previous">Назад</string>
+</resources>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">exam5</string>
+    <string name="header">ТОП-5 спортивных мероприятий</string>
+    <string name="selectionString">Выберите мероприятие</string>
+    <string name="h2">спортивных\nмероприятий</string>
+    <string name="h1">ТОП-5</string>
+</resources>
