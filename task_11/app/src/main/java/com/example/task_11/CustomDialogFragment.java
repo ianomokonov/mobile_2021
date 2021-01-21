@@ -28,7 +28,7 @@ public class CustomDialogFragment extends DialogFragment {
     public void onAttach(Context context){
         super.onAttach(context);
         sendable = (Sendable) context;
-        try {
+        /*try {
             // открываем поток для чтения
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     getActivity().openFileInput("user_data")));
@@ -41,7 +41,7 @@ public class CustomDialogFragment extends DialogFragment {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @NonNull

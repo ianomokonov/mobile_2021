@@ -1,4 +1,4 @@
-var todoItems = JSON.parse(localStorage.getItem('todoItems'));
+var todoItems = JSON.parse(localStorage.getItem('todoItems')) || [];
 
 class TodoHeader extends React.Component {
     render() {
@@ -81,25 +81,28 @@ class TodoApp extends React.Component {
         super(props);
         this.addItem = this.addItem.bind(this);
         this.markTodoDone = this.markTodoDone.bind(this);
-        this.state = { todoItems: todoItems };
+        this.state = { todoItems: this.props.initItems };
     }
     addItem(todoItem) {
-        todoItems.unshift({
-            index: todoItems.length + 1,
+        let newItem = {
+            index: this.state.todoItems.length + 1,
             value: todoItem.newItemValue,
             done: false
-        });
-        localStorage.setItem('todoItems', JSON.stringify(todoItems));
-        this.setState({ todoItems: todoItems });
+        }
+        const items = [newItem, ...this.state.todoItems];
+        this.setState({ todoItems: items });
+        localStorage.setItem('todoItems', JSON.stringify(items));
     }
     markTodoDone(itemIndex) {
-        var todo = todoItems[itemIndex];
+        const items = this.state.todoItems.slice();
+        var todo = items[itemIndex];
         todo.done = !todo.done;
-        this.setState({ todoItems: todoItems });
+        this.setState({ todoItems: items });
         setTimeout(() => {
-            todoItems.splice(itemIndex, 1);
-            localStorage.setItem('todoItems', JSON.stringify(todoItems));
-            this.setState({ todoItems: todoItems });
+            const items = this.state.todoItems.slice();
+            items.splice(itemIndex, 1);
+            this.setState({ todoItems: items });
+            localStorage.setItem('todoItems', JSON.stringify(items));
         }, 1000);
     }
     render() {
@@ -107,7 +110,7 @@ class TodoApp extends React.Component {
             <div id="main" className="w-50 m-auto">
                 <TodoHeader />
                 <TodoForm addItem={this.addItem} />
-                <TodoList items={this.props.initItems} markTodoDone={this.markTodoDone} />
+                <TodoList items={this.state.todoItems} markTodoDone={this.markTodoDone} />
             </div>
         );
     }

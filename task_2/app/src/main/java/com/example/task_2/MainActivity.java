@@ -1,4 +1,4 @@
-package com.example.task2;
+package com.example.task_2;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openCaloriesActivity(View view) {
-        Intent intent = new Intent(this, CaloriesActivity.class);
+        Intent intent = new Intent(this, com.example.task2.CaloriesActivity.class);
         startActivityForResult(intent, 0);
     }
 

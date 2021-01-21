@@ -1,7 +1,7 @@
 function find_words() {
     let text = document.querySelector('textarea').value;
     text = text.toLowerCase();
-    let text_array = text.split(/[.,\/#!$%\^&\*;:{}=\-_`~()/ /«»]/g);
+    let text_array = text.split(/[.,\/#!$%\^&\*;:{}=\-_`~()/ /«»?/\n]/g);
     text_array = text_array.filter(x => x != '');
     let maximum = '';
     let result = [];
