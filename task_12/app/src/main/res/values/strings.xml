@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">task_12</string>
+    <string-array name="types_array">
+        <item>Высокий приоритет</item>
+        <item>Средний приоритет</item>
+        <item>Низкий приоритет</item>
+    </string-array>
+</resources>
