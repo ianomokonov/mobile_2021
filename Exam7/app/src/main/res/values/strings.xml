@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Exam7</string>
+    <string name="welcome">Добро пожаловать!</string>
+    <string name="toStart">Нажмите \"старт\", чтобы начать медицинскую диагностику</string>
+    <string name="startButton">СТАРТ</string>
+    <string name="q_age">Сколько Вам лет?</string>
+    <string name="_18_25">18–25 лет</string>
+    <string name="_25_40">25–40 лет</string>
+    <string name="_40_50">40–50 лет</string>
+    <string name="_50_70">50–70 лет</string>
+    <string name="_70">70+</string>
+    <string name="next">next</string>
+    <string name="next_q">Далее</string>
+    <string name="q_temp">Ваша температура?</string>
+    <string name="_36_37_u00b0c">36 - 37 °C</string>
+    <string name="_37_38_u00b0c">37 - 38 °C</string>
+    <string name="_38_39_u00b0c">38 - 39 °C</string>
+    <string name="_39_u00b0c">39+ °C</string>
+    <string name="q_press">Ваше давление?</string>
+    <string name="_116_72">116/72</string>
+    <string name="_159_85">159/85</string>
+    <string name="_144_85">144/85</string>
+    <string name="_137_84">137/84</string>
+    <string name="_120_75">120/75</string>
+    <string name="doctor">запись</string>
+    <string name="totalHeader">Заключение</string>
+    <string name="toMain">Пройти тест</string>
+</resources>
